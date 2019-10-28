@@ -27,7 +27,7 @@ class OpenNsfwModel:
     def build(self, weights_path="open_nsfw-weights.npy",
               input_type=InputType.TENSOR):
 
-        self.weights = np.load(weights_path, encoding="latin1").item()
+        self.weights = np.load(weights_path, allow_pickle=True, encoding="latin1").item()
         self.input_tensor = None
 
         if input_type == InputType.TENSOR:

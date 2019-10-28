@@ -1,3 +1,5 @@
+import imageio
+
 VGG_MEAN = [104, 117, 123]
 
 
@@ -28,7 +30,7 @@ def create_yahoo_image_loader(expand_dims=True):
         imr.save(fh_im, format='JPEG')
         fh_im.seek(0)
 
-        image = (skimage.img_as_float(skimage.io.imread(fh_im, as_grey=False))
+        image = (skimage.img_as_float(imageio.imread(fh_im))
                         .astype(np.float32))
 
         H, W, _ = image.shape
